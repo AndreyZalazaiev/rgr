@@ -5,6 +5,7 @@ import { AuthProvider } from './components/AuthProvider/AuthProvider';
 import { NavBar } from './components/NavBar/NavBar';
 import { PrivateRoute } from './components/PrivateRoute/PrivateRoute';
 import { Login } from './pages/Login/Login';
+import { Register } from './pages/Register/Register';
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                             <h1 className="bg-secondary p-2 m-2 text-white text-center">About</h1>
                         </PrivateRoute>
                         <Route exact path="/login" component={Login} />
+                        <Route exact path="/register" component={Register} />
                         <Route>
                             <h1 className="bg-warning p-2 m-2 text-white text-center">Not found</h1>
                         </Route>
