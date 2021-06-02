@@ -7,6 +7,7 @@ import { PrivateRoute } from './components/PrivateRoute/PrivateRoute';
 import { Login } from './pages/Login/Login';
 import { Logout } from './pages/Logout/Logout';
 import { Register } from './pages/Register/Register';
+import { TestViewer } from './pages/TestViewer/TestViewer';
 
 function App() {
     return (
@@ -24,7 +25,7 @@ function App() {
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/register" component={Register} />
                         <PrivateRoute exact path="/logout" component={Logout} />
-                        
+                        <PrivateRoute exact path="/tests/:id" component={TestViewer}/>
                         <Route>
                             <h1 className="bg-warning p-2 m-2 text-white text-center">Not found</h1>
                         </Route>

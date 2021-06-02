@@ -1,4 +1,4 @@
-export const tests = [
+export const testsApi = [
     {
         id: 451,
         name: 'Дифференциальные уравнения',
