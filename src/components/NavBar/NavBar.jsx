@@ -23,6 +23,7 @@ function NavBar() {
                         }
                         { auth.user?.role === 'teacher' && 
                         <>
+                        <NavLink to="/private-tests" className="nav-link" activeClassName="active">Приватные тесты</NavLink>
                         <NavLink to="/completed-tests" className="nav-link" activeClassName="active">Назначить тесты</NavLink>
                         <NavLink to="/assigned-tests" className="nav-link" activeClassName="active">Создать тесты</NavLink>
                         </>
