@@ -14,7 +14,7 @@ function NavBar() {
                 <Navigationbar.Collapse id="navbar-collapse">
                     <Nav className="mr-auto">
                         <NavLink exact to="/" className="nav-link" activeClassName="active">Главная</NavLink>
-                        { auth.user && <NavLink to="/tests/dada" className="nav-link" activeClassName="active">Тесты</NavLink>}
+                        { auth.user && <NavLink to="/tests/451" className="nav-link" activeClassName="active">Тесты</NavLink>}
                         { auth.user?.role === 'student' && 
                         <>
                         <NavLink to="/completed-tests" className="nav-link" activeClassName="active">Пройденные тесты</NavLink>
