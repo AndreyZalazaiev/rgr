@@ -18,12 +18,13 @@ function App() {
                         <Route exact path="/">
                             <h1 className="bg-primary p-2 m-2 text-white text-center">Home</h1>
                         </Route>
-                        <PrivateRoute exact path="/about">
+                        <Route exact path="/about">
                             <h1 className="bg-secondary p-2 m-2 text-white text-center">About</h1>
-                        </PrivateRoute>
+                        </Route>
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/register" component={Register} />
                         <PrivateRoute exact path="/logout" component={Logout} />
+                        
                         <Route>
                             <h1 className="bg-warning p-2 m-2 text-white text-center">Not found</h1>
                         </Route>
