@@ -1,12 +1,25 @@
 import { Field, Form, Formik } from 'formik';
+import { useState } from 'react';
 import { Button, Card, FormGroup, FormLabel } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { login } from '../../api/authApi';
+import { useAuth } from '../../components/AuthProvider/authHooks';
 import { validationService } from '../../services/validationService';
 import './Login.scss';
 
 function Login() {
-    function handleSubmit(values) {
+    const history = useHistory();
+    const auth = useAuth();
+    const [errorMessage, setError] = useState(null);
 
+    function handleSubmit(values) {
+        const user = login(values);
+        if (user){
+            auth.login(user);
+            history.push('/');
+        } else{
+            setError('Неверный логин или пароль')
+        }
     }
 
     return (
@@ -19,15 +32,16 @@ function Login() {
                             username: '',
                             password: ''
                         }}
-                        handleSubmit={handleSubmit}>
+                        onSubmit={handleSubmit}>
                         {({ touched, errors }) =>
                         (
                             <Form>
+                                {errorMessage && <div className="text-danger">{errorMessage}</div>}
                                 <FormGroup>
-                                    <FormLabel htmlFor="username">Имя пользователя:</FormLabel>
+                                    <FormLabel htmlFor="username">Логин:</FormLabel>
                                     <Field
                                         name="username" id="username"
-                                        className="form-control" placeholder="Введите ваше имя пользователя"
+                                        className="form-control" placeholder="Введите ваш логин"
                                         validate={validationService.validateRequired} />
                                     {touched.username && errors.username ? <span className="text-danger">{errors.username}</span> : null}
                                 </FormGroup>

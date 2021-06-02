@@ -6,8 +6,10 @@ function useAuthProivder() {
     const [user, setUser] = useState(null);
 
     const login = (user) => {
-        auth.authLogin(user);
-        setUser(user);
+        if (user) {
+            auth.authLogin(user);
+            setUser(user);
+        }
     };
 
     const logout = () => {
@@ -17,8 +19,8 @@ function useAuthProivder() {
 
     if (!user) {
         const storageUser = auth.getUser();
-        if (storageUser){
-            login(user);
+        if (storageUser) {
+            login(storageUser);
         }
     }
 

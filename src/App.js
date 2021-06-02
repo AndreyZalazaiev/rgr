@@ -1,5 +1,5 @@
 import { Container } from 'react-bootstrap';
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import { AuthProvider } from './components/AuthProvider/AuthProvider';
 import { NavBar } from './components/NavBar/NavBar';
