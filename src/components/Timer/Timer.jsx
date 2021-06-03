@@ -10,7 +10,6 @@ function Timer({ minutes, onTick }) {
             interval = setInterval(() => {
                 setSeconds(seconds => {
                     if (seconds === 0 && isActive) {
-                        onTick();
                         setIsActive(false);
                         return 0;
                     }
@@ -18,7 +17,8 @@ function Timer({ minutes, onTick }) {
                 })
             }, 1000);
         } else if (!isActive) {
-            clearInterval(interval);
+            clearInterval(interval);     
+            onTick(); 
         }
         return () => clearInterval(interval);
     }, [isActive, onTick]);
