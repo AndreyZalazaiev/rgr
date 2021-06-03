@@ -24,8 +24,12 @@ function App() {
                         </Route>
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/register" component={Register} />
-                        <PrivateRoute exact path="/logout" component={Logout} />
-                        <PrivateRoute exact path="/tests/:id" component={TestViewer}/>
+                        <PrivateRoute exact path="/logout">
+                            <Logout />
+                        </PrivateRoute>
+                        <PrivateRoute exact path="/tests/:id">
+                            <TestViewer />
+                        </PrivateRoute>
                         <Route>
                             <h1 className="bg-warning p-2 m-2 text-white text-center">Not found</h1>
                         </Route>
