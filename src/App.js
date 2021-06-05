@@ -10,6 +10,7 @@ import { Register } from './pages/Register/Register';
 import { UserProfile } from './pages/UserProfile/UserProfile';
 import { TestViewer } from './pages/TestViewer/TestViewer';
 import { PassedTests } from './pages/PassedTests/PassedTests';
+import { AssignedTests } from './pages/AssignedTests/AssignedTests';
 
 function App() {
     return (
@@ -37,6 +38,9 @@ function App() {
                         </PrivateRoute>
                         <PrivateRoute exact path="/tests/:id">
                             <TestViewer />
+                        </PrivateRoute>
+                        <PrivateRoute exact path="/assigned-tests">
+                            <AssignedTests />
                         </PrivateRoute>
                         <Route>
                             <h1 className="bg-warning p-2 m-2 text-white text-center">Not found</h1>

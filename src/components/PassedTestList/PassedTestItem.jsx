@@ -1,9 +1,9 @@
 import { Card } from "react-bootstrap";
 import './PassedTestItem.scss';
 
-function PassedTestItem({ test }) {
+function PassedTestItem({ test, onClick }) {
     return (
-        <Card className="user-test-item">
+        <Card className="user-test-item" onClick={() => onClick(test.id)}>
             <Card.Body>
                 <Card.Title>{test.title}</Card.Title>
                 <Card.Text>Оценка: {test.score}%</Card.Text>

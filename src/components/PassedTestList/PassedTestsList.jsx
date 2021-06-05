@@ -1,8 +1,10 @@
 import { Col, Form, Row } from "react-bootstrap";
+import { useHistory } from "react-router";
 import { CardWrapper } from "../general/CardWrapper";
 import { PassedTestItem } from "./PassedTestItem";
 
 function PassedTestList({ user, userInfo }) {
+    const history = useHistory();
     return (
         user.role === 'student'
             ? (
@@ -24,7 +26,7 @@ function PassedTestList({ user, userInfo }) {
                         </Col>
                     </Form.Group>
                     <CardWrapper theme="light" title="Пройденные тесты:">
-                        { userInfo.tests.map((test, index) => <PassedTestItem test={test} key={index} />)}
+                        { userInfo.tests.map((test, index) => <PassedTestItem test={test} key={index} onClick={(id) => history.push('/tests/' + id)}/>)}
                     </CardWrapper>
                 </>
             )
