@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { useAuth } from '../../components/AuthProvider/authHooks';
-import { CardWrapper } from '../../components/CardWrapper/CardWrapper';
+import { useAuth } from '../../components/general/authHooks';
+import { CardWrapper } from '../../components/general/CardWrapper';
 import { userApi } from '../../api/userApi';
 import './UserProfile.scss';
 import { MenuNavBar } from '../../components/MenuNavBar/MenuNavBar';

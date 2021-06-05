@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { testsApi } from '../../api/testApi';
-import { CardWrapper } from '../../components/CardWrapper/CardWrapper';
+import { CardWrapper } from '../../components/general/CardWrapper';
 import { Test } from '../../components/Test/Test';
 import './TestViewer.scss';
 

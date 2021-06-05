@@ -1,5 +1,5 @@
 import { Col, Form, Row } from "react-bootstrap";
-import { CardWrapper } from "../CardWrapper/CardWrapper";
+import { CardWrapper } from "../general/CardWrapper";
 import { PassedTestItem } from "./PassedTestItem";
 
 function PassedTestList({ user, userInfo }) {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { userApi } from "../../api/userApi";
-import { useAuth } from "../../components/AuthProvider/authHooks";
-import { CardWrapper } from "../../components/CardWrapper/CardWrapper";
+import { useAuth } from "../../components/general/authHooks";
+import { CardWrapper } from "../../components/general/CardWrapper";
 import { PassedTestList } from "../../components/PassedTestList/PassedTestsList";
 
 function PassedTests() {

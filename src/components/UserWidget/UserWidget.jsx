@@ -1,6 +1,6 @@
 import { Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useAuth } from "../AuthProvider/authHooks";
+import { useAuth } from "../general/authHooks";
 
 function UserWidget() {
     const auth = useAuth();

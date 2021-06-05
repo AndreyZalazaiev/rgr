@@ -2,7 +2,7 @@ import { Field, Form, Formik } from 'formik';
 import { Button, Card, FormCheck, FormGroup, FormLabel } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import { register } from '../../api/authApi';
-import { useAuth } from '../../components/AuthProvider/authHooks';
+import { useAuth } from '../../components/general/authHooks';
 import { validationService } from '../../services/validationService';
 import './Register.scss';
 

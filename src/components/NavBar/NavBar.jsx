@@ -1,6 +1,6 @@
 import { Container, Nav, Navbar as Navigationbar } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
-import { useAuth } from "../AuthProvider/authHooks";
+import { useAuth } from "../general/authHooks";
 import { UserWidget } from "../UserWidget/UserWidget";
 import './NavBar.scss';
 

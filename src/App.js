@@ -1,9 +1,9 @@
 import { Container } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.scss';
-import { AuthProvider } from './components/AuthProvider/AuthProvider';
+import { AuthProvider } from './components/general/AuthProvider';
 import { NavBar } from './components/NavBar/NavBar';
-import { PrivateRoute } from './components/PrivateRoute/PrivateRoute';
+import { PrivateRoute } from './components/general/PrivateRoute';
 import { Login } from './pages/Login/Login';
 import { Logout } from './pages/Logout/Logout';
 import { Register } from './pages/Register/Register';

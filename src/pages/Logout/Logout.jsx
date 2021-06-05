@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Redirect } from "react-router";
-import { useAuth } from "../../components/AuthProvider/authHooks";
+import { useAuth } from "../../components/general/authHooks";
 
 function Logout() {
     const auth = useAuth();
