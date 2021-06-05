@@ -8,7 +8,7 @@ function UserWidget() {
         auth.user &&
         <Nav>
             <NavDropdown title={auth.user?.username} className="active">
-                <li><Link to='/profile' className="dropdown-item">Профиль</Link></li>
+                <li><Link to='/user' className="dropdown-item">Профиль</Link></li>
                 <NavDropdown.Divider />
                 <li><Link to='/logout' className="dropdown-item">Выйти</Link></li>
             </NavDropdown>
