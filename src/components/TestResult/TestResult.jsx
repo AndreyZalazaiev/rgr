@@ -41,8 +41,8 @@ function TestResult({ test, answers }) {
                 })}
             </div>
             <QuestionDescription
-                question={selectedQuestion ? test.questions[selectedQuestion] : null}
-                answer={selectedQuestion ? answers[selectedQuestion] : 0} />
+                question={selectedQuestion >= 0 ? test.questions[selectedQuestion] : null}
+                answer={selectedQuestion >= 0? answers[selectedQuestion] : 0} />
         </>
     );
 }
