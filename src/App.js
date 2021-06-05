@@ -1,5 +1,5 @@
 import { Container } from 'react-bootstrap';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import { AuthProvider } from './components/general/AuthProvider';
 import { NavBar } from './components/NavBar/NavBar';
@@ -15,7 +15,7 @@ import { AssignedTests } from './pages/AssignedTests/AssignedTests';
 function App() {
     return (
         <AuthProvider>
-            <Router>
+            <HashRouter>
                 <NavBar />
                 <Container>
                     <Switch>
@@ -47,7 +47,7 @@ function App() {
                         </Route>
                     </Switch>
                 </Container>
-            </Router>
+            </HashRouter>
         </AuthProvider>
     );
 }
