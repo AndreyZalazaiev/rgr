@@ -9,6 +9,7 @@ import { Logout } from './pages/Logout/Logout';
 import { Register } from './pages/Register/Register';
 import { UserProfile } from './pages/UserProfile/UserProfile';
 import { TestViewer } from './pages/TestViewer/TestViewer';
+import { PassedTests } from './pages/PassedTests/PassedTests';
 
 function App() {
     return (
@@ -27,6 +28,9 @@ function App() {
                         <Route exact path="/register" component={Register} />
                         <PrivateRoute exact path="/logout">
                             <Logout />
+                        </PrivateRoute>
+                        <PrivateRoute exact path="/completed-tests">
+                            <PassedTests />
                         </PrivateRoute>
                         <PrivateRoute exact path="/user">
                             <UserProfile />

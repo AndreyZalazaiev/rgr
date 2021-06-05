@@ -1,8 +1,8 @@
 import { Col, Form, Row } from "react-bootstrap";
-import { CardWrapper } from "../../components/CardWrapper/CardWrapper";
-import { UserTestItem } from "./UserTestItem";
+import { CardWrapper } from "../CardWrapper/CardWrapper";
+import { PassedTestItem } from "./PassedTestItem";
 
-function UserTestList({ user, userInfo }) {
+function PassedTestList({ user, userInfo }) {
     return (
         user.role === 'student'
             ? (
@@ -24,7 +24,7 @@ function UserTestList({ user, userInfo }) {
                         </Col>
                     </Form.Group>
                     <CardWrapper theme="light" title="Пройденные тесты:">
-                        { userInfo.tests.map((test, index) => <UserTestItem test={test} key={index} />)}
+                        { userInfo.tests.map((test, index) => <PassedTestItem test={test} key={index} />)}
                     </CardWrapper>
                 </>
             )
@@ -37,4 +37,4 @@ function UserTestList({ user, userInfo }) {
     );
 }
 
-export { UserTestList };
+export { PassedTestList };

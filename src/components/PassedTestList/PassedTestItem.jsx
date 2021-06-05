@@ -1,6 +1,7 @@
 import { Card } from "react-bootstrap";
+import './PassedTestItem.scss';
 
-function UserTestItem({ test }) {
+function PassedTestItem({ test }) {
     return (
         <Card className="user-test-item">
             <Card.Body>
@@ -12,4 +13,4 @@ function UserTestItem({ test }) {
     );
 }
 
-export { UserTestItem };
+export { PassedTestItem };
