@@ -4,7 +4,7 @@ function UserSummary( {user} ) {
     return (
         <Form>
             <Form.Group as={Row} controlId="formPlaintextUsername">
-                <Form.Label column sm="3">
+                <Form.Label column lg="3">
                     Имя пользователя:
                     </Form.Label>
                 <Col>
@@ -12,7 +12,7 @@ function UserSummary( {user} ) {
                 </Col>
             </Form.Group>
             <Form.Group as={Row} controlId="formPlaintextEmail">
-                <Form.Label column sm="3">
+                <Form.Label column lg="3">
                     Email:
                     </Form.Label>
                 <Col>
@@ -20,7 +20,7 @@ function UserSummary( {user} ) {
                 </Col>
             </Form.Group>
             <Form.Group as={Row} controlId="formPlaintextEmail">
-                <Form.Label column sm="3">
+                <Form.Label column lg="3">
                     Роль:
                     </Form.Label>
                 <Col>

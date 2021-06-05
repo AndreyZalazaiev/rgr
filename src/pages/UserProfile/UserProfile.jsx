@@ -6,6 +6,7 @@ import { userApi } from '../../api/userApi';
 import './UserProfile.scss';
 import { MenuNavBar } from '../../components/MenuNavBar/MenuNavBar';
 import { UserSummary } from './UserSummary';
+import { UserTestList } from './UserTestsList';
 
 function UserProfile() {
     const auth = useAuth();
@@ -36,6 +37,7 @@ function UserProfile() {
                 </Col>
                 <Col>
                     { category === 'general' && <UserSummary user={auth.user}/>}
+                    { category === 'tests' && <UserTestList user={auth.user} userInfo={userInfo} />}
                 </Col>
             </Row>
         </CardWrapper>
