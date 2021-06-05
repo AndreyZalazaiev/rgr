@@ -1,0 +1,25 @@
+.answer{
+    text-align: center;
+    color: white;
+    display: inline-block;
+    margin: 0.15em;
+    padding: 0.1em;
+    min-width: 2em;
+    min-height: 2em;
+    border-radius: 20%;
+    cursor: pointer;
+    
+    &.correct{
+        background-color: rgb(2, 148, 2);
+        &:hover{
+            background-color: rgb(6, 179, 6);
+        }
+    }
+
+    &.wrong{
+        background-color: rgb(209, 4, 4);
+        &:hover{
+            background-color: rgba(236, 19, 19, 0.884);
+        }
+    }
+}

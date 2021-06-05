@@ -8,6 +8,7 @@ import { Login } from './pages/Login/Login';
 import { Logout } from './pages/Logout/Logout';
 import { Register } from './pages/Register/Register';
 import { UserProfile } from './pages/UserProfile/UserProfile';
+import { TestViewer } from './pages/TestViewer/TestViewer';
 
 function App() {
     return (
@@ -29,6 +30,9 @@ function App() {
                         </PrivateRoute>
                         <PrivateRoute exact path="/user">
                             <UserProfile />
+                        </PrivateRoute>
+                        <PrivateRoute exact path="/tests/:id">
+                            <TestViewer />
                         </PrivateRoute>
                         <Route>
                             <h1 className="bg-warning p-2 m-2 text-white text-center">Not found</h1>
