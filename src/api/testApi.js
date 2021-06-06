@@ -6,6 +6,7 @@ export const testsApi = [
         author: 'Леонид Вячеславович',
         public: true,
         time: 5,
+        category: 'Математика',
         questions: [
             {
                 question: 'Общим решением дифференциального уравнения n-го порядка называется',
@@ -126,6 +127,7 @@ export const testsApi = [
         author: 'Стас Колисниченко',
         public: true,
         time: 1,
+        category: 'Психология',
         questions: [
             {
                 question: 'Вы избегаете те места, где много людей.',
