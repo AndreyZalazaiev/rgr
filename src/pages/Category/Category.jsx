@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router";
+import { useHistory } from "react-router";
 import { categoriesApi } from "../../api/categoriesApi";
 import { CardItem } from "../../components/general/CardItem";
 import { CardWrapper } from "../../components/general/CardWrapper";
 
 function Category() {
     const [categories, setCategories] = useState([]);
-    const { id } = useParams();
     const history = useHistory();
 
     useEffect(() => {

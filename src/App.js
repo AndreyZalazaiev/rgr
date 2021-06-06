@@ -12,6 +12,7 @@ import { TestViewer } from './pages/TestViewer/TestViewer';
 import { PassedTests } from './pages/PassedTests/PassedTests';
 import { AssignedTests } from './pages/AssignedTests/AssignedTests';
 import { Category } from './pages/Category/Category';
+import { SelectedCategorty } from './pages/Category/SelectedCategory';
 
 function App() {
     return (
@@ -45,6 +46,9 @@ function App() {
                         </PrivateRoute>
                         <PrivateRoute exact path="/category">
                             <Category />
+                        </PrivateRoute>
+                        <PrivateRoute exact path="/category/:id">
+                            <SelectedCategorty />
                         </PrivateRoute>
                         <Route>
                             <h1 className="bg-warning p-2 m-2 text-white text-center">Not found</h1>
