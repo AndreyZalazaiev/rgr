@@ -14,6 +14,7 @@ import { AssignedTests } from './pages/AssignedTests/AssignedTests';
 import { Category } from './pages/Category/Category';
 import { SelectedCategorty } from './pages/Category/SelectedCategory';
 import { AddTest } from './pages/AddTest/AddTest';
+import { Home } from './pages/Home/Home';
 
 function App() {
     return (
@@ -25,10 +26,7 @@ function App() {
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/register" component={Register} />
                         <PrivateRoute exact path="/">
-                            <h1 className="bg-primary p-2 m-2 text-white text-center">Home</h1>
-                        </PrivateRoute>
-                        <PrivateRoute exact path="/about">
-                            <h1 className="bg-secondary p-2 m-2 text-white text-center">About</h1>
+                            <Home />
                         </PrivateRoute>
                         <PrivateRoute exact path="/logout">
                             <Logout />

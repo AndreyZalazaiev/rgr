@@ -26,7 +26,6 @@ function NavBar() {
                         <NavLink to="/test/add" className="nav-link" activeClassName="active">Создать тесты</NavLink>
                         </>
                         }
-                        <NavLink to="/about" className="nav-link">О проекте</NavLink>
                     </Nav>
                     <UserWidget />
                 </Navigationbar.Collapse>
