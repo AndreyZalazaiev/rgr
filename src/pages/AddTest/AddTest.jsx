@@ -1,24 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { categoriesApi } from '../../api/categoriesApi';
 import { CardWrapper } from '../../components/general/CardWrapper';
 import './AddTest.scss';
 import { Question } from './Question';
+import useFetch from "../../hooks/useFetch"
+import {API_BASE_URL} from "../../config/consts";
 
 function AddTest() {
     const [questions, setQuestions] = useState([]);
-    const [categories, setCategories] = useState([]); 
-
-    useEffect(() => {
-        setCategories(categoriesApi);
-    }, null);
+    const {categories, loading} = useFetch(`${API_BASE_URL}categories`)
 
     function handleAddQuestion() {
         const q = questions.slice();
         q.push(<Question id={q.length} key={q.length}/>);
         setQuestions(q);
     }
-
+    if (loading){
+        return <h1>Loading...</h1>
+    }
     return (
         <CardWrapper theme="success" title="Новый тест">
             <Form.Group>

@@ -12,7 +12,7 @@ import { TestViewer } from './pages/TestViewer/TestViewer';
 import { PassedTests } from './pages/PassedTests/PassedTests';
 import { AssignedTests } from './pages/AssignedTests/AssignedTests';
 import { Category } from './pages/Category/Category';
-import { SelectedCategorty } from './pages/Category/SelectedCategory';
+import { SelectedCategory } from './pages/Category/SelectedCategory';
 import { AddTest } from './pages/AddTest/AddTest';
 import { Home } from './pages/Home/Home';
 
@@ -47,7 +47,7 @@ function App() {
                             <Category />
                         </PrivateRoute>
                         <PrivateRoute exact path="/category/:id">
-                            <SelectedCategorty />
+                            <SelectedCategory />
                         </PrivateRoute>
                         <PrivateRoute exact path="/test/add">
                             <AddTest />

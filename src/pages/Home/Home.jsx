@@ -1,24 +1,23 @@
-import { useEffect, useState } from "react";
+
 import { Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 import { useHistory } from "react-router";
-import * as homeApi from '../../api/homeApi';
+import useFetch from "../../hooks/useFetch";
+import {API_BASE_URL} from "../../config/consts";
 
 function Home() {
-    const [newTests, setNewTests] = useState([]);
-    const [popularTests, setPopularTests] = useState([]);
-    const [news, setNews] = useState([]);
     const history = useHistory();
-
+    const {data,loading,error} = useFetch(`${API_BASE_URL}home`)
 
     function handleClick(id){
         history.push("/tests/" + id);
     }
 
-    useEffect(() => {
-        setNewTests(homeApi.newTests);
-        setPopularTests(homeApi.popularTests);
-        setNews(homeApi.news);
-    }, []);
+    if(loading){
+        return <h1>Loading...</h1>
+    }
+    if (error){
+        return <h1>{error.message}</h1>
+    }
 
     return (
         <Container className="p-2">
@@ -26,15 +25,16 @@ function Home() {
             <Row>
                 <Col sm={3}>
                     <ListGroup>
-                        {newTests.map((n, index) => (
-                            <ListGroup.Item key={index} style={{cursor: "pointer"}} onClick={() => handleClick(index)}>{n}</ListGroup.Item>
+                        <ListGroup.Item id="title">Новые тесты:</ListGroup.Item>
+                        {data.tests.map((n) => (
+                            <ListGroup.Item key={n._id} style={{cursor: "pointer"}} onClick={() => handleClick(n._id)}>{n.name}</ListGroup.Item>
                         ))}
                     </ListGroup>
                 </Col>
                 <Col>
                     <Card>
                         <Card.Body>
-                            {news.map((n, id) => (
+                            {data.news.map((n, id) => (
                                 <div key={id} className="my-2 border p-2 rounded news" style={{cursor: "pointer"}}>
                                     <h5>{n.title}</h5>
                                     <p>{n.desc}</p>
@@ -45,8 +45,9 @@ function Home() {
                 </Col>
                 <Col sm={3}>
                 <ListGroup>
-                        {popularTests.map((n, index) => (
-                            <ListGroup.Item key={index} style={{cursor: "pointer"}} onClick={() => handleClick(index)}>{n}</ListGroup.Item>
+                    <ListGroup.Item id="titleid">Лучшие тесты:</ListGroup.Item>
+                        {data.topTests.map((n) => (
+                            <ListGroup.Item key={n._id} style={{cursor: "pointer"}} onClick={() => handleClick(n._id)}>{n.name}</ListGroup.Item>
                         ))}
                     </ListGroup>
                 </Col>

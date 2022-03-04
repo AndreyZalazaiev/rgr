@@ -1,10 +1,10 @@
 import { createContext } from "react";
-import { useAuthProivder } from "./authHooks";
+import { useAuthProvider } from "./authHooks";
 
 export const authContext = createContext();
 
 function AuthProvider({ children }) {
-    const auth = useAuthProivder();
+    const auth = useAuthProvider();
     return (
         <authContext.Provider value={auth}>
             {children}

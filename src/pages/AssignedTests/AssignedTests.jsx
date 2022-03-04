@@ -1,23 +1,22 @@
-import { useEffect, useState } from "react";
-import { useHistory } from "react-router";
-import { assignedTestsApi } from "../../api/assignedTestsApi";
-import { useAuth } from "../../components/general/authHooks";
-import { CardWrapper } from "../../components/general/CardWrapper";
-import { AssignedTestItem } from "./AssignedTestItem";
+import {useHistory} from "react-router";
+import {useAuth} from "../../components/general/authHooks";
+import {CardWrapper} from "../../components/general/CardWrapper";
+import {AssignedTestItem} from "./AssignedTestItem";
+import useFetch from "../../hooks/useFetch";
+import {API_BASE_URL} from "../../config/consts";
 
 function AssignedTests() {
-    const { user } = useAuth();
-    const [tests, setTests] = useState([]);
+    const {user} = useAuth();
     const history = useHistory();
 
-    // get data from the backend
-    useEffect(() => {
-        const tests = assignedTestsApi.find(a => a.username === user.username);
-        if (tests){
-            setTests(tests.tests);
-        }
-    }, [user]);
+    const {data: tests, error, loading} = useFetch(`${API_BASE_URL}assignments?username=${user.username}`)
 
+    if (loading) {
+        return <h1>Loading...</h1>
+    }
+    if (error) {
+        return <h1>{error.message}</h1>
+    }
     return (
         <CardWrapper theme="warning" title="Назначенные тесты">
             {tests && tests.map((t) => (
@@ -27,4 +26,4 @@ function AssignedTests() {
     );
 }
 
-export { AssignedTests };
+export {AssignedTests};

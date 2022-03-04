@@ -1,24 +1,24 @@
-import { useEffect, useState } from "react";
-import { userApi } from "../../api/userApi";
+
 import { useAuth } from "../../components/general/authHooks";
 import { CardWrapper } from "../../components/general/CardWrapper";
 import { PassedTestList } from "../../components/PassedTestList/PassedTestsList";
+import useFetch from "../../hooks/useFetch";
+import {API_BASE_URL} from "../../config/consts";
 
 function PassedTests() {
     const auth = useAuth();
-    const [userInfo, setUserInfo] = useState(null);
+    const {data,error,loading} = useFetch(`${API_BASE_URL}completed?username=${auth.user.username}`)
 
-    // get data from the backend
-    useEffect(() => {
-        const ui = userApi.find(u => u.username === auth.user.username);
-        if (ui) {
-            setUserInfo(ui);
-        }
-    }, [auth]);
+    if (loading){
+        return <h1>Loading...</h1>
+    }
+    if (error){
+        return <h1>{error.message}</h1>
+    }
 
     return (
         <CardWrapper theme="success" title="Пройденные тесты">
-            {userInfo && <PassedTestList user={auth.user} userInfo={userInfo} />}
+            {data && <PassedTestList user={auth.user} testResults={data}/>}
         </CardWrapper>
     );
 }

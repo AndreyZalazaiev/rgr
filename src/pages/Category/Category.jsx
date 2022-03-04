@@ -1,22 +1,21 @@
-import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
-import { categoriesApi } from "../../api/categoriesApi";
 import { CardItem } from "../../components/general/CardItem";
 import { CardWrapper } from "../../components/general/CardWrapper";
+import useFetch from "../../hooks/useFetch"
+import {API_BASE_URL} from "../../config/consts";
 
 function Category() {
-    const [categories, setCategories] = useState([]);
     const history = useHistory();
+    const {data: categories,loading} = useFetch(`${API_BASE_URL}categories`)
 
-    useEffect(() => {
-        setCategories(categoriesApi);
-    }, []);
-
+    if (loading){
+        return <h1>Loading...</h1>
+    }
     return (
         <CardWrapper theme="primary" title="Категории">
             {categories && categories.map(c => (
                 <CardItem
-                    key={c.id} title={c.name} body={c.description} footer={"Тестов: " + c.testCount}
+                    key={c._id} title={c.name} body={c.description} footer={"Тестов: " + c.testCount}
                     onClick={() => history.push('/category/' + c.id)} />
             ))}
         </CardWrapper>

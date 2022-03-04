@@ -1,19 +1,19 @@
 import { useContext, useState } from "react";
-import * as auth from "../../services/fakeAuthService";
+import * as auth from "../../services/authService";
 import { authContext } from "./AuthProvider";
 
-function useAuthProivder() {
+function useAuthProvider() {
     const [user, setUser] = useState(null);
 
     const login = (user) => {
         if (user) {
-            auth.authLogin(user);
+            auth.storeAuthInfo(user);
             setUser(user);
         }
     };
 
     const logout = () => {
-        auth.authLogout();
+        auth.cleanAuthInfo();
         setUser(null);
     };
 
@@ -35,4 +35,4 @@ function useAuth() {
     return useContext(authContext);
 }
 
-export { useAuthProivder, useAuth };
+export { useAuthProvider, useAuth };

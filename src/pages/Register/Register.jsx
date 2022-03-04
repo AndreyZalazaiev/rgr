@@ -1,7 +1,7 @@
 import { Field, Form, Formik } from 'formik';
 import { Button, Card, FormCheck, FormGroup, FormLabel } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
-import { register } from '../../api/authApi';
+import { registerRequest} from "../../services/authService";
 import { useAuth } from '../../components/general/authHooks';
 import { validationService } from '../../services/validationService';
 import './Register.scss';
@@ -11,7 +11,7 @@ function Register() {
     const history = useHistory();
 
     function handleSubmit(values) {
-        const user = register(values);
+        const user = registerRequest(values);
         auth.login(user);
         history.push('/');
     }

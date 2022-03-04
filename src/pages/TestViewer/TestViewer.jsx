@@ -1,22 +1,25 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { testsApi } from '../../api/testApi';
 import { CardWrapper } from '../../components/general/CardWrapper';
 import { Test } from '../../components/Test/Test';
 import './TestViewer.scss';
+import useFetch from "../../hooks/useFetch"
+import {API_BASE_URL} from "../../config/consts";
 
 function TestViewer() {
     const { id } = useParams();
-    const [test, setTest] = useState(null); 
+    const [test, setTest] = useState(null);
+    const {data:tests,loading} = useFetch(`${API_BASE_URL}tests`)
 
     useEffect(() => {
-        // get test from back (fake)
-        const intId = Number.parseInt(id);
-        if (intId){
-            setTest(testsApi.find(t => t.id === intId));
-        }
-    }, [id]);
-    
+        if(!loading && tests)
+        setTest(tests.find(t => t._id === id));
+    },[tests,id,loading])
+
+    if (loading){
+        return <h1>Loading...</h1>
+    }
+
     return (
         <CardWrapper theme="secondary" title="Прохождение теста">
             <Test test={test}/>

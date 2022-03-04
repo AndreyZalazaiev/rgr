@@ -1,25 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useAuth } from '../../components/general/authHooks';
 import { CardWrapper } from '../../components/general/CardWrapper';
-import { userApi } from '../../api/userApi';
 import './UserProfile.scss';
 import { MenuNavBar } from '../../components/MenuNavBar/MenuNavBar';
 import { UserSummary } from './UserSummary';
 import { PassedTestList } from '../../components/PassedTestList/PassedTestsList';
+import useFetch from "../../hooks/useFetch";
+import {API_BASE_URL} from "../../config/consts";
 
 function UserProfile() {
     const auth = useAuth();
-    const [userInfo, setUserInfo] = useState(null);
     const [category, setCategory] = useState('general');
+    const {data,error,loading} = useFetch(`${API_BASE_URL}completed?username=${auth.user.username}`)
 
-    // get data from the backend
-    useEffect(() => {
-        const ui = userApi.find(u => u.username === auth.user.username);
-        if (ui) {
-            setUserInfo(ui);
-        }
-    }, [auth]);
+    if (loading){
+        return <h1>Loading...</h1>
+    }
+    if (error){
+        return <h1>Something went wrong</h1>
+    }
 
     return (
         <CardWrapper theme="primary" title={`Профиль пользователя ${auth.user.username}`}>
@@ -37,7 +37,7 @@ function UserProfile() {
                 </Col>
                 <Col>
                     { category === 'general' && <UserSummary user={auth.user}/>}
-                    { category === 'tests' && <PassedTestList user={auth.user} userInfo={userInfo} />}
+                    { category === 'tests' && <PassedTestList user={auth.user} testResults={data} />}
                 </Col>
             </Row>
         </CardWrapper>
